@@ -11,6 +11,7 @@ html, body {
   height: 100%;
   font-family: 'Arial', sans-serif;
   overflow: hidden;
+  background: #f0e6f7;
 }
 .section {
   width: 100%;
@@ -30,7 +31,6 @@ html, body {
   font-size: 24px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 .active {
   opacity: 1;
@@ -56,14 +56,13 @@ html, body {
   font-size: 20px;
   color: #fff;
 }
-#sec1 { background-image: url('https://i.ibb.co/ZxP8tLw/birthday1.jpg'); font-size: 36px; color:#4b2e83; }
-#sec2 { background-image: url('https://i.ibb.co/tMJ3xB3/birthday2.jpg'); }
-#sec3 { background-image: url('https://i.ibb.co/2h5S1Hc/birthday3.jpg'); }
-#sec4 { background-image: url('https://i.ibb.co/3f5v0Yb/birthday4.jpg'); }
-#sec5 { background-image: url('https://i.ibb.co/yYb5g0G/birthday5.jpg'); }
-#sec6 { background-image: url('https://i.ibb.co/2tX1WQZ/birthday6.jpg'); color: #333; }
-#sec7 { background-image: url('https://i.ibb.co/0fQ5W9Z/birthday7.jpg'); color: #4b2e83; font-size: 48px; display:flex; justify-content:center; align-items:center; flex-direction: column; }
-#sec8 { background-image: url('https://i.ibb.co/kD7wY8Z/birthday8.jpg'); color: #fff; font-size: 48px; display:flex; justify-content:center; align-items:center; flex-direction: column; }
+#sec1 { background-color: #ffccf9; font-size: 36px; color:#4b2e83; }
+#sec2 { background-color: #ffb3c6; }
+#sec3 { background-color: #ffd6a5; }
+#sec4 { background-color: #a0e7e5; }
+#sec5 { background-color: #b4f8c8; }
+#sec6 { background-color: #fef9c3; color: #333; }
+#sec7 { background-color: #ffedbc; color: #4b2e83; font-size: 48px; display:flex; justify-content:center; align-items:center; }
 #happyText {
   animation: fadeText 5s forwards;
 }
@@ -94,14 +93,14 @@ html, body {
 
 <div id="sec2" class="section hidden">
   <h2>Aap Jaisi Khoobsurat Insaan</h2>
-  <p>آپ کے اخلاق، آپ کی سچائی، آپ کی نرمی اور آپ کی باریک حسِ جمال-آپ اُن چند لوگوں میں سے ہیں جو چہرے سے زیادہ دل کے خوبصورت ہوتے ہیں۔ </p>
+  <p>آپ کے اخلاق، آپ کی سچائی، آپ کی نرمی اور آپ کی باریک حسِ جمال-آپ اُن چند لوگوں میں سے ہیں جو چہرے سے زیادہ دل کے خوبصورت ہوتے ہیں۔</p>
   <div class="quote">"Aap jaisi achi, pyari, seedhi aur sachi insaan ko hamesha duniya ki sab se behtareen cheezein milni chahiye. Aapka ikhlaq, lehja aur soch aap ko sab se alag banati hain"</div>
   <button class="btn-next" onclick="nextSection()">Next</button>
 </div>
 
 <div id="sec3" class="section hidden">
   <h2>Yaadein Jo Reh Gayi</h2>
-  <p>آپ ہمیشہ سب کے لیے اچھا سوچنے والی، ہر ایک کے کام آنے والی، اور دوسروں کی خوشی میں خوش ہونے والی لڑکی ہیں۔</p>
+  <p>آآپ ہمیشہ سب کے لیے اچھا سوچنے والی، ہر ایک کے کام آنے والی، اور دوسروں کی خوشی میں خوش ہونے والی لڑکی ہیں، اور ایسے لوگ واقعی کم ہوتے ہیں۔ </p>
   <div class="quote">"Mujhe abhi tak woh din yaad hai jab hum shed se wapis aa rahe thay aur barish ho rahi thi… aur mere mana karne ke bawajood ap ne pani me jump kiya."
 <br>"Aur phir aap ke haath ka banaya hua pulao aur custard — abhi tak uski khushboo yaad aati hai."</div>
   <button class="btn-next" onclick="nextSection()">Next</button>
@@ -112,16 +111,20 @@ html, body {
   <p>آپ کی آنکھیں—وہ گہرا سیاہ رنگ جو عام نہیں، ایک ایسے راز کی طرح ہے جو صرف خوبصورتی نہیں… گہرائی بھی رکھتا ہے۔</p>
   <div class="quote">"Aap ki aankhein woh gehra kaala rang jo na sirf khoobsurat hain balkay puri kainat in ma samai hoi ha."
 <br>"Aap ki aankhon me koi ajeeb si khamosh chamak hai jo dekhne wale ko rok leti hai."</div>
-  <button class="btn-next" onclick="nextSection()">Next</button>
+  <p>
+نور ہی نور سے مکھڑے پہ وہ نوری آنکھیں
+    
+اس کے انجیل سے چہرے پہ زبوری آنکھیں<p/>
+<button class="btn-next" onclick="nextSection()">Next</button>
 </div>
 
 <div id="sec5" class="section hidden">
   <h2>Duaen & Motivation</h2>
   <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
   <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
-<br>"Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain. Aapka dil hamesha halka aur khush rahe. Laraib… aap intelligent aur sincere hain."
-<br>"Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai."
-<br>"Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain."</div>
+<br>"Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
+“Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
+“Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
   <button class="btn-next" onclick="nextSection()">Next</button>
 </div>
 
@@ -130,7 +133,6 @@ html, body {
   <p> اللہ آپ کو خوشیوں، مسکراہٹوں، کامیابیوں اور محبتوں سے نوازے۔ </p>
   <p>Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se behtareen saal ho. Aap hamesha muskurayein, chamkain aur khush rahein.</p>
   <audio id="bgMusic" src="ma_agar_kahon_tum_sa_haseen.mp3" loop autoplay></audio>
-  <button class="btn-next" onclick="nextSection()">Next</button>
 </div>
 
 <div id="sec7" class="section hidden">
@@ -139,19 +141,13 @@ html, body {
   <audio id="finalMusic" src="happy_birthday_song.mp3"></audio>
 </div>
 
-<div id="sec8" class="section hidden">
-  <div id="happyTextFinal">Happy Birthday Laraib!</div>
-  <img id="cakeFinal" src="https://i.ibb.co/F5bT63F/cake.png" alt="cake">
-  <audio id="finalMusicPlay" src="happy_birthday_song.mp3" autoplay></audio>
-</div>
-
 <script>
 let current = 1;
 function nextSection() {
   document.getElementById('sec' + current).classList.remove('active');
   document.getElementById('sec' + current).classList.add('hidden');
   current++;
-  if(current <= 8){
+  if(current <= 7){
     document.getElementById('sec' + current).classList.add('active');
     document.getElementById('sec' + current).classList.remove('hidden');
     if(current === 7){
@@ -161,14 +157,6 @@ function nextSection() {
       setTimeout(()=>{
         finalMusic.pause();
         document.getElementById('happyText').style.opacity = '0';
-      }, 5000);
-    }
-    if(current === 8){
-      const finalPlay = document.getElementById('finalMusicPlay');
-      finalPlay.play();
-      setTimeout(()=>{
-        finalPlay.pause();
-        document.getElementById('happyTextFinal').style.opacity = '0';
       }, 5000);
     }
   }
