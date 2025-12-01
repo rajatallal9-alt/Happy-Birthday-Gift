@@ -579,7 +579,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
         final.currentTime = 0;
       }
       showClosingOverlay();
-    }, 10000);
+    }, 14000);
   }
 
   function launchConfetti(n){
