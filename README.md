@@ -111,10 +111,9 @@ html, body {
   <p>آپ کی آنکھیں—وہ گہرا سیاہ رنگ جو عام نہیں، ایک ایسے راز کی طرح ہے جو صرف خوبصورتی نہیں… گہرائی بھی رکھتا ہے۔</p>
   <div class="quote">"Aap ki aankhein woh gehra kaala rang jo na sirf khoobsurat hain balkay puri kainat in ma samai hoi ha."
 <br>"Aap ki aankhon me koi ajeeb si khamosh chamak hai jo dekhne wale ko rok leti hai."</div>
-  <button class="btn-next" onclick="nextSection()">Next</button>
   <p> نور ہی نور سے مکھڑے پہ وہ نوری آنکھیں
-
 اس کے انجیل سے چہرے پہ زبوری آنکھیں<p/>
+<button class="btn-next" onclick="nextSection()">Next</button>
 </div>
 
 <div id="sec5" class="section hidden">
@@ -129,7 +128,8 @@ html, body {
 
 <div id="sec6" class="section hidden">
   <h2>End Note</h2>
-  <p>Happy Birthday once again, Laraib! اللہ آپ کو خوشیوں، مسکراہٹوں، کامیابیوں اور محبتوں سے نوازے۔</p>
+  <p> اللہ آپ کو خوشیوں، مسکراہٹوں، کامیابیوں اور محبتوں سے نوازے۔
+  Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se behtareen saal ho. Aap hamesha muskurayein, chamkain aur khush rahein.</p>
   <audio id="bgMusic" src="ma_agar_kahon_tum_sa_haseen.mp3" loop autoplay></audio>
 </div>
 
