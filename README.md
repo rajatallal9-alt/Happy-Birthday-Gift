@@ -20,7 +20,7 @@
     /* Changed background to light, warm gradient */
     background: linear-gradient(180deg,#fff0f5 0%, #fff 60%); 
     -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+    -moz-osx-smoothing:grayscale;
     color:#222;
     overflow:hidden;
   }
@@ -304,7 +304,7 @@
       width:500px; 
       transition: transform .2s ease; 
       border-radius:14px; 
-      z-index: 2;
+      z-index: 2; /* Ensures cake is on top layer within the container */
   }
   
   /* Celebration Text and Glow */
@@ -327,10 +327,8 @@
     z-index: 10;
     pointer-events: none;
     transition: opacity 1.5s ease-in-out;
-    background: rgba(255,255,255,0.85); 
-    padding: 20px 0;
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
+    /* REMOVED OPAQUE BACKGROUND HERE TO SEE CAKE */
+    /* REMOVED PADDING - NO LONGER NEEDED WITHOUT BACKGROUND */
     animation: pulseGlow 1.5s infinite alternate; 
   }
 
@@ -467,7 +465,7 @@
         <div class="card-content">
           <h2 id="title6">Duaen & Motivation</h2>
           <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
-          <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
+          <div class="quote">"Main dua karta hoon ke Allah aap ke تمام goals aasaan kar de."
 "Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
 “Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
 “Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
@@ -570,7 +568,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
       bg.play().then(() => {
         bgStarted = true;
       }).catch(err => {
-        // Music play failed (likely still blocked, but at least we tried)
+        // Music play failed (mobile restriction likely, but at least we tried)
         console.warn('bgMusic play failed (mobile restriction likely):', err);
       });
     }
@@ -726,7 +724,8 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     overlay.style.fontFamily = 'Segoe UI, Roboto, Arial, sans-serif';
     overlay.style.opacity = '0';
     overlay.style.transition = 'opacity .5s';
-    overlay.innerHTML = '<h1>🎉 Happy Birthday Laraib 🎉</h1>';
+    // Cleaned up the closing message
+    overlay.innerHTML = '<h1>🎉 Happy Birthday Laraib! 🎉</h1><p style="font-size: 16px;">Wish you all the best.</p>';
     overlay.style.flexDirection = 'column';
     overlay.style.textAlign = 'center';
     
