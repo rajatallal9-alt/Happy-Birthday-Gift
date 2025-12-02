@@ -90,13 +90,11 @@
 
   .door.left {
       left: 0;
-      /* Ensures the door parts are perfectly side-by-side */
       transform: translateX(-50%) rotateY(0deg); 
   }
 
   .door.right {
       right: 0;
-      /* Ensures the door parts are perfectly side-by-side */
       transform: translateX(50%) rotateY(0deg); 
   }
 
@@ -280,20 +278,19 @@
   }
   
   /* ------------------------------------------------ */
-  /* CAKE AND KNIFE STYLES (Large Size Maintained & Centered) */
+  /* CAKE AND KNIFE STYLES (Guaranteed Centering) */
   /* ------------------------------------------------ */
   #cake-container {
       position: relative;
-      width: 100%;
+      max-width: 500px;
+      margin: 20px auto; 
       display: flex;
-      justify-content: center; /* Center cake horizontally */
+      justify-content: center; 
       align-items: center;
       height: 450px; 
-      margin-top: 20px;
-      margin-bottom: 20px;
   }
   #cake { 
-      max-width:80%; 
+      max-width:100%; 
       width:500px; 
       transition: transform .2s ease; 
       border-radius:14px; 
@@ -303,7 +300,7 @@
       width:130px; 
       position:absolute; 
       z-index: 5;
-      left:-200px; /* Hidden off-screen */
+      left:-200px; 
       top:10%; 
       transform: rotate(-15deg);
       transition: all 0.5s ease-out;
@@ -319,7 +316,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Perfect centering */
+    transform: translate(-50%, -50%); 
     width: 100%;
     text-align: center;
     font-size: 3.5rem; 
@@ -343,7 +340,7 @@
     .envelope .letter { height:70%; top:18%; padding:16px; }
     .card-content p{ font-size:16px; }
     #cake { width:380px; } 
-    #cake-container { height: 400px; } 
+    #cake-container { height: 400px; max-width: 380px; } 
     #celebrationText { font-size: 2.5rem; }
     .btn { padding: 10px 18px; font-size: 16px; }
   }
@@ -354,8 +351,8 @@
     .card-content h1{ font-size:20px; }
     .card-content p{ font-size:15px; }
     #celebrationText { font-size: 2rem; }
-    #cake-container { height: 300px; } 
     #cake { width: 280px; } 
+    #cake-container { height: 300px; max-width: 280px; } 
     .btn { padding: 10px 18px; font-size: 16px; }
   }
 </style>
@@ -470,7 +467,7 @@
         <div class="card-content">
           <h2 id="title6">Duaen & Motivation</h2>
           <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
-          <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
+          <div class="quote">"Main dua karta hoon ke Allah aap ke तमाम goals aasaan kar de."
 "Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
 “Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
 “Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
@@ -574,6 +571,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     // 1. Start Music (This should be allowed by the browser since it's user-initiated on load, though we'll keep the promise check)
     const bg = document.getElementById('bgMusic');
     if(bg && !bgStarted){
+      // Added a promise check/catch for better browser support
       bg.play().catch(err => console.warn('bgMusic play failed:', err));
       bgStarted = true;
     }
@@ -584,7 +582,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     // 3. Proceed to the first envelope (Section 2) after the animation delay
     setTimeout(() => {
         showSection(2); 
-    }, 2000); // 2 seconds delay for door animation and greeting visibility
+    }, 2200); 
   }
 
   // Open envelope
@@ -727,7 +725,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
 
   (function init(){
     showSection(1);
-    // Automatic start after a very small delay to ensure CSS loads
+    // Automatic start: Calls openDoor immediately after the initial section display
     setTimeout(openDoor, 50); 
   })();
 </script>
