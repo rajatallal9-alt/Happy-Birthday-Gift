@@ -207,21 +207,21 @@
       cursor: not-allowed;
   }
 
-  /* CAKE AND KNIFE STYLES */
+  /* CAKE AND KNIFE STYLES - ADJUSTED SIZE FOR LARGER CAKE */
   #cake-container {
       position: relative;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 300px; 
+      height: 380px; /* Increased Height */
       margin-top: 20px;
       margin-bottom: 20px;
   }
 
   #cake { 
       max-width:80%; 
-      width:320px; 
+      width:400px; /* Increased Width */
       transition: transform .2s ease; 
       border-radius:14px; 
       z-index: 2;
@@ -236,6 +236,16 @@
       transform: rotate(-15deg);
       transition: all 0.5s ease-out;
       opacity: 0;
+  }
+
+  /* KEYFRAMES FOR PULSING GLOW */
+  @keyframes pulseGlow {
+      from {
+          text-shadow: 0 0 10px var(--accent-1), 0 0 20px var(--accent-1);
+      }
+      to {
+          text-shadow: 0 0 20px var(--accent-1), 0 0 30px #fff;
+      }
   }
 
   #celebrationText {
@@ -257,6 +267,8 @@
     padding: 20px 0;
     border-radius: 20px;
     backdrop-filter: blur(4px);
+    /* APPLY PULSING ANIMATION */
+    animation: pulseGlow 1.5s infinite alternate; 
   }
 
   .confetti { position:fixed; width:10px; height:14px; z-index:9999; pointer-events:none; }
@@ -265,7 +277,8 @@
     .envelope { width: 92%; height: 420px; }
     .envelope .letter { height:70%; top:18%; padding:16px; }
     .card-content p{ font-size:16px; }
-    #cake { width:260px; }
+    #cake { width:300px; } /* Adjusted cake size for medium screen */
+    #cake-container { height: 320px; }
     #knife { width:100px; }
     #celebrationText { font-size: 2rem; }
   }
@@ -276,8 +289,8 @@
     .card-content h1{ font-size:20px; }
     .card-content p{ font-size:15px; }
     #celebrationText { font-size: 1.8rem; }
-    #cake-container { height: 220px; }
-    #cake { width: 220px; }
+    #cake-container { height: 260px; } /* Mobile height adjusted */
+    #cake { width: 240px; } /* Mobile width adjusted */
   }
 </style>
 </head>
@@ -289,7 +302,7 @@
       <div class="flap" aria-hidden="true"></div>
       <div class="letter" role="article" aria-labelledby="title1">
         <div class="card-content">
-          <h1 id="title1">✨ Happy Birthday, Laraib! ✨</h1>
+          <h1 id="title1">✨ **Happy Birthday, Laraib!** ✨</h1>
           <p>آج کا دن آپ کے لیے روشنیوں سے بھرا ہوا ہے، Laraib—</p>
           <div class="quote">"Aaj ka din waqai bohot khaas hai."</div>
         </div>
@@ -430,7 +443,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
       <div class="letter" role="article" aria-labelledby="title7">
         <div class="card-content">
           <h2 id="title7">🎂 Surprise & Celebration</h2>
-          <p>Happy Birthday once again, Laraib! Enjoy the surprise — press "Next" to cut the cake 🎉</p>
+          <p>Happy Birthday once again, Laraib! Enjoy the surprise — press "**Next**" to cut the cake 🎉</p>
         </div>
       </div>
       <div class="body"></div>
@@ -454,7 +467,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
         </div>
     
         <div style="margin-top:20px; padding-bottom: 20px;">
-            <button id="cutBtn" class="btn" onclick="cutCake()">Cut Cake 🎂</button>
+            <button id="cutBtn" class="btn" onclick="cutCake()">**Cut Cake 🎂**</button>
         </div>
     
         <audio id="finalMusic" src="assets/happy_birthday_song.mp3" preload="auto" aria-hidden="true"></audio>
@@ -568,8 +581,8 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
 
     }, 600);
 
-    // 5. Confetti
-    launchConfetti(80);
+    // 5. Confetti - INCREASED COUNT TO 150
+    launchConfetti(150);
 
     // 6. 10 Second Timer to Stop Everything
     setTimeout(()=>{
@@ -579,7 +592,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
         final.currentTime = 0;
       }
       showClosingOverlay();
-    }, 14000);
+    }, 10000); // 10 seconds (10000 ms)
   }
 
   function launchConfetti(n){
