@@ -467,7 +467,7 @@
         <div class="card-content">
           <h2 id="title6">Duaen & Motivation</h2>
           <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
-          <div class="quote">"Main dua karta hoon ke Allah aap ke तमाम goals aasaan kar de."
+          <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
 "Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
 “Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
 “Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
