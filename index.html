@@ -467,7 +467,7 @@
         <div class="card-content">
           <h2 id="title6">Duaen & Motivation</h2>
           <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
-          <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
+          <div class="quote">"Main dua karta hoon ke Allah aap ke तमाम goals aasaan kar de."
 "Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
 “Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
 “Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
@@ -549,11 +549,10 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
   const totalSections = 9;
   let current = 1; 
   let bgStarted = false;
-  let confettiLoopTimer = null; // To hold the interval for continuous confetti
-  const CELEBRATION_DURATION = 14000; // 14 seconds
+  let confettiLoopTimer = null; 
+  const CELEBRATION_DURATION = 10000; 
 
   function showSection(i){
-    // Determine the element ID (intro for 1, secX for others)
     for(let s=1;s<=totalSections;s++){
       const id = s === 1 ? 'intro' : 'sec' + s;
       const el = document.getElementById(id);
@@ -564,16 +563,24 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     current = i;
   }
 
-  // AUTOMATIC FUNCTION: Open Door and Start Music/Transition
+  // NEW FUNCTION: Tries to start the background music
+  function tryStartBgMusic() {
+    const bg = document.getElementById('bgMusic');
+    if(bg && !bgStarted){
+      bg.play().then(() => {
+        bgStarted = true;
+      }).catch(err => {
+        // Music play failed (likely still blocked, but at least we tried)
+        console.warn('bgMusic play failed (mobile restriction likely):', err);
+      });
+    }
+  }
+
+  // AUTOMATIC FUNCTION: Open Door and Transition (NO MUSIC START HERE)
   function openDoor(){
     const doorContainer = document.querySelector('#intro .door-container');
     
-    // 1. Start Music 
-    const bg = document.getElementById('bgMusic');
-    if(bg && !bgStarted){
-      bg.play().catch(err => console.warn('bgMusic play failed:', err));
-      bgStarted = true;
-    }
+    // 1. **DO NOT START MUSIC HERE**
     
     // 2. Open the doors (CSS animation)
     doorContainer.classList.add('door-open');
@@ -585,6 +592,11 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
   }
 
   function openEnvelope(idx){
+    // *** START MUSIC ON FIRST USER INTERACTION (SECTION 2) ***
+    if (idx === 2) {
+        tryStartBgMusic();
+    }
+    
     const env = document.querySelector(`#sec${idx} .envelope`);
     if(!env) return;
 
@@ -599,6 +611,11 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
   }
 
   function skipOpen(idx){
+    // *** START MUSIC ON FIRST USER INTERACTION (SECTION 2) ***
+    if (idx === 2) {
+        tryStartBgMusic();
+    }
+
     const env = document.querySelector(`#sec${idx} .envelope`);
     if(env) env.classList.add('opened');
     const controls = env.closest('.card-wrap').querySelector('.controls');
@@ -625,6 +642,10 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     if(slice){ slice.currentTime = 0; slice.play().catch(()=>{}); }
     
     if(final){
+      // Stop the BG music and start the final song
+      document.getElementById('bgMusic').pause();
+      document.getElementById('bgMusic').currentTime = 0;
+      
       final.currentTime = 0;
       final.play().catch(e => console.warn('finalMusic play failed', e));
     }
@@ -635,7 +656,6 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     setTimeout(()=>{
         cake.style.transform = 'scale(.96)';
         setTimeout(()=>{
-            // Replace with sliced image
             cake.src = 'assets/cake-sliced.png';
             cake.style.transform = 'scale(1)';
         }, 100);
@@ -660,10 +680,8 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
   }
 
   function startConfettiLoop() {
-    // Launch initial burst
     launchConfetti(80);
 
-    // Set interval to launch small bursts every 500ms
     confettiLoopTimer = setInterval(() => {
         launchConfetti(20); 
     }, 500);
@@ -682,7 +700,6 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
       el.style.borderRadius = (Math.random()>0.5? '2px':'50%');
       el.style.opacity = 1;
       el.style.transform = `rotate(${Math.random()*360}deg)`;
-      // Speed/duration adjusted slightly for continuous drop
       el.style.transition = `transform ${2.5 + Math.random()*1.5}s linear, top ${2.5 + Math.random()*1.5}s linear, opacity 1s ease`;
       document.body.appendChild(el);
 
@@ -709,7 +726,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
     overlay.style.fontFamily = 'Segoe UI, Roboto, Arial, sans-serif';
     overlay.style.opacity = '0';
     overlay.style.transition = 'opacity .5s';
-    overlay.innerHTML = '<h1>🎉 Happy Birthday Laraib 🎉</h1><p>';
+    overlay.innerHTML = '<h1>🎉 Celebration Complete! 🎉</h1><p>Happy Birthday Laraib</p>';
     overlay.style.flexDirection = 'column';
     overlay.style.textAlign = 'center';
     
@@ -724,7 +741,7 @@ Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se 
 
   (function init(){
     showSection(1);
-    // Automatic start: Calls openDoor immediately after the initial section display
+    // Automatic door opening is still here
     setTimeout(openDoor, 50); 
   })();
 </script>
