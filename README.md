@@ -155,20 +155,41 @@
     /* ... other flap styles ... */
   }
 
+  /* BUTTON SIZE INCREASED HERE */
+  .controls{
+    display:flex;
+    gap:12px;
+    margin-top:8px;
+    z-index: 10;
+  }
   .btn{
-    /* ... other button styles ... */
-    background:linear-gradient(90deg,var(--accent-1), #800080); /* Pink/Purple Gradient */
+    appearance:none;
+    border:0;
+    padding:12px 22px; /* Increased padding */
+    border-radius:12px; /* Increased corner radius */
+    background:linear-gradient(90deg,var(--accent-1), #800080);
+    color:#fff;
+    cursor:pointer;
+    font-size:18px; /* Increased font size */
     box-shadow: 0 6px 18px rgba(255, 105, 180, 0.3);
+  }
+  .btn.secondary{
+    background:transparent;
+    color:var(--accent-2);
+    box-shadow:none;
+    border:2px solid rgba(75,46,131,0.2); /* Slightly thicker border */
+  }
+  .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
   }
   
   /* ... (Keep other envelope, letter, content styles the same) ... */
 
 
   /* ------------------------------------------------ */
-  /* CAKE AND KNIFE STYLES */
+  /* CAKE AND KNIFE STYLES (Large Size Maintained) */
   /* ------------------------------------------------ */
-  /* ... (Keep Cake Styles as per last update, including size increase and glow animation) ... */
-
   #cake-container {
       position: relative;
       width: 100%;
@@ -191,24 +212,47 @@
       to { text-shadow: 0 0 20px var(--accent-1), 0 0 30px #fff; }
   }
   #celebrationText {
-    /* ... existing styles ... */
-    color: var(--accent-1); /* Use the new bright pink */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 3.5rem; 
+    font-weight: bold;
+    color: var(--accent-1); 
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9), 0px 4px 12px rgba(139,46,255,0.3);
+    opacity: 0;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in-out;
+    background: rgba(255,255,255,0.85); 
+    padding: 20px 0;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
     animation: pulseGlow 1.5s infinite alternate; 
   }
 
 
   @media (max-width:900px){
-    /* ... existing media query styles ... */
+    .envelope { width: 92%; height: 420px; }
+    .envelope .letter { height:70%; top:18%; padding:16px; }
+    .card-content p{ font-size:16px; }
     #cake { width:380px; } 
     #cake-container { height: 400px; } 
     #celebrationText { font-size: 2.5rem; }
+    .btn { padding: 10px 18px; font-size: 16px; } /* Adjust buttons back for smaller screens */
   }
 
   @media (max-width:520px){
-    /* ... existing media query styles ... */
+    .envelope{ height:360px; }
+    .envelope .letter { height:70%; top:15%; }
+    .card-content h1{ font-size:20px; }
+    .card-content p{ font-size:15px; }
+    #celebrationText { font-size: 2rem; }
     #cake-container { height: 300px; } 
     #cake { width: 280px; } 
-    #celebrationText { font-size: 2rem; }
+    .btn { padding: 10px 18px; font-size: 16px; } /* Adjust buttons back for smaller screens */
   }
 </style>
 </head>
@@ -232,7 +276,7 @@
       <div class="flap" aria-hidden="true"></div>
       <div class="letter" role="article" aria-labelledby="title2">
         <div class="card-content">
-          <h1 id="title2">✨ Happy Birthday, Laraib! ✨</h1>
+          <h1 id="title2">✨ **Happy Birthday, Laraib!** ✨</h1>
           <p>آج کا دن آپ کے لیے روشنیوں سے بھرا ہوا ہے، Laraib—</p>
           <div class="quote">"Aaj ka din waqai bohot khaas hai."</div>
         </div>
@@ -326,7 +370,7 @@
         <div class="card-content">
           <h2 id="title6">Duaen & Motivation</h2>
           <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
-          <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
+          <div class="quote">"Main dua karta hoon ke Allah aap ke तमाम goals aasaan kar de."
 "Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
 “Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
 “Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
