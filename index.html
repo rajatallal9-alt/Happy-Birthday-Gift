@@ -5,24 +5,21 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Happy Birthday Laraib — Card</title>
 <style>
-    /* SIMPLIFIED COLOR THEME (Hardcoded for maximum compatibility) */
-    
-    /* Original Colors */
-    --ACCENT-PINK: #ff69b4; 
-    --ACCENT-PURPLE: #800080;
-    --ACCENT-GOLD: #FFD700;
-    --DARK-TEXT: #4b2e83;
-    
+    /* --- HARDCODED COLOR DEFINITIONS (FOR MAX COMPATIBILITY) --- */
+    /* Pink: #ff69b4, Purple: #800080, Gold: #FFD700, Dark Text: #4b2e83 */
+
     html,body{
         height:100%;
         margin:0;
         font-family: "Segoe UI", Roboto, Arial, sans-serif;
-        background: #f7eaf0; /* Pale background for the body */
-        background-image: radial-gradient(circle at top right, #fff0f5 10%, transparent 50%),
+        /* Richer, layered background */
+        background: #f7eaf0;
+        background-image: 
+            radial-gradient(circle at top right, #fff0f5 10%, transparent 50%),
             linear-gradient(180deg, #ffd9eb 0%, #ffffff 80%);
         -webkit-font-smoothing:antialiased;
         -moz-osx-font-smoothing:grayscale;
-        color:var(--DARK-TEXT); /* Still using the dark text variable */
+        color:#4b2e83;
         overflow:hidden;
     }
     
@@ -37,7 +34,7 @@
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
-    /* Layout for scrolling on mobile (Applied to active sections) */
+    /* Layout for sections */
     .section {
         position:absolute;
         inset:0;
@@ -56,7 +53,6 @@
         z-index: 1;
     }
     
-    /* Center Section 9 (Cake) and INTRO Section */
     #sec9.section, #intro.section {
         justify-content: center;
     }
@@ -69,7 +65,7 @@
     }
 
     /* ------------------------------------------------ */
-    /* INTRO DOOR STYLES (Kept for the opening screen) */
+    /* INTRO DOOR STYLES */
     /* ------------------------------------------------ */
     #intro {
         background: linear-gradient(180deg, #ffd9eb 0%, #ffffff 100%);
@@ -100,27 +96,15 @@
         border-radius: 8px;
     }
 
-    .door.left {
-        left: 0;
-        transform: translateX(-50%) rotateY(0deg); 
-    }
+    .door.left { left: 0; transform: translateX(-50%) rotateY(0deg); }
+    .door.right { right: 0; transform: translateX(50%) rotateY(0deg); }
 
-    .door.right {
-        right: 0;
-        transform: translateX(50%) rotateY(0deg); 
-    }
-
-    #intro.door-open .door.left {
-        transform: translateX(-100%) rotateY(-130deg);
-    }
-
-    #intro.door-open .door.right {
-        transform: translateX(100%) rotateY(130deg);
-    }
+    #intro.door-open .door.left { transform: translateX(-100%) rotateY(-130deg); }
+    #intro.door-open .door.right { transform: translateX(100%) rotateY(130deg); }
 
     .greeting-text {
         position: absolute;
-        font-size: 2.8rem; 
+        font-size: 2.8rem;
         font-weight: bold;
         color: #ff69b4; /* ACCENT-PINK */
         text-shadow: 0 0 10px rgba(255, 105, 180, 0.6), 0 0 20px #fff, 2px 2px 4px #800080;
@@ -129,13 +113,11 @@
         text-align: center;
         z-index: 5;
     }
-    #intro.door-open .greeting-text {
-        opacity: 1;
-    }
+    #intro.door-open .greeting-text { opacity: 1; }
 
 
     /* ------------------------------------------------ */
-    /* GENERAL CARD STYLES (ENVELOPE - NEW DESIGN) */
+    /* GENERAL CARD STYLES */
     /* ------------------------------------------------ */
     .card-wrap{
         width:100%;
@@ -162,7 +144,7 @@
     .envelope .body {
         position:absolute;
         inset:0;
-        border-radius:16px; 
+        border-radius:16px;
         background: #f7eaf0; /* Pale Pink Body */
         box-shadow: 0 12px 40px rgba(20,10,60,0.1);
         overflow:visible;
@@ -181,9 +163,10 @@
         width:100%;
         height:100%;
         transform-origin: top center;
-        background: linear-gradient(135deg, #ff69b4, #ff4d94); /* Pink to Lighter Pink */
+        /* Pink gradient with Gold top border */
+        background: linear-gradient(135deg, #ff69b4, #ff4d94);
         border-radius:16px;
-        border-top: 5px solid #FFD700; /* Gold border */
+        border-top: 5px solid #FFD700;
         box-shadow: 0 15px 45px rgba(255, 105, 180, 0.6);
         transform-style: preserve-3d;
         transition: transform .8s cubic-bezier(.2,.9,.3,1);
@@ -194,7 +177,7 @@
         justify-content:center;
     }
     
-    /* ENHANCED: Flap content */
+    /* Flap content */
     .envelope .flap::after{
         content: "✨ Tap to Open Card ✨";
         display:block;
@@ -230,13 +213,8 @@
         -webkit-overflow-scrolling: touch;
     }
 
-    .envelope.opened .flap {
-        transform: rotateX(-180deg);
-    }
-    .envelope.opened .letter {
-        transform: translateY(0) scale(1);
-        opacity:1;
-    }
+    .envelope.opened .flap { transform: rotateX(-180deg); }
+    .envelope.opened .letter { transform: translateY(0) scale(1); opacity:1; }
     
     .card-content{
         width:100%;
@@ -288,7 +266,8 @@
         border:0;
         padding:12px 24px; 
         border-radius:12px; 
-        background:linear-gradient(45deg, #ff69b4, #9933cc); /* Pink to Royal Purple */
+        /* Pink to Royal Purple gradient */
+        background:linear-gradient(45deg, #ff69b4, #9933cc);
         color:#fff;
         cursor:pointer;
         font-size:18px; 
@@ -317,7 +296,7 @@
     }
     
     /* ------------------------------------------------ */
-    /* CAKE STYLES (Guaranteed Centering) */
+    /* CAKE STYLES */
     /* ------------------------------------------------ */
     #cake-container {
         position: relative;
@@ -337,7 +316,7 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
     
-    /* Celebration Text (ONLY GLOW EFFECT - Removed opaque background) */
+    /* Celebration Text GLOW EFFECT */
     @keyframes pulseGlow {
         from { text-shadow: 0 0 10px #ff69b4, 0 0 30px #FFD700, 0 0 50px #ff69b4; }
         to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #FFD700, 0 0 60px #fff; }
@@ -446,7 +425,7 @@
                     <h2 id="title4">Yaadein Jo Reh Gayi</h2>
                     <p>آپ ہمیشہ سب کے لیے اچھا سوچنے والی، ہر ایک کے کام آنے والی، اور دوسروں کی خوشی میں خوش ہونے والی لڑکی ہیں، اور ایسے لوگ واقعی کم ہوتے ہیں۔ 
 
-<div class="quote" style="border-left: 5px solid var(--gold);">"Mujhe abhi tak woh din yaad hai jab hum shed se wapis aa rahe thay aur barish ho rahi thi… aur mere mana karne ke bawajood ap ne pani me jump kiya."
+<div class="quote" style="border-left: 5px solid #FFD700; color: #ff69b4;">"Mujhe abhi tak woh din yaad hai jab hum shed se wapis aa rahe thay aur barish ho rahi thi… aur mere mana karne ke bawajood ap ne pani me jump kiya."
 "Aur phir aap ke haath ka banaya hua pulao aur custard — abhi tak uski khushboo yaad aati hai."</div></p>
                     <p>کاش یہ وقت واپس آ جائے، وہ سب معصوم باتیں، وہ سب ہنسی مذاق اور وہ بے فکری کے دن۔ لیکن اب بھی جہاں کہیں بھی آپ ہوں، میری دعا ہے کہ آپ وہاں مکمل خوش اور پرسکون رہیں۔ یہ یادیں ہماری دوستی کی بنیاد ہیں، اور مجھے فخر ہے کہ میں آپ کو جانتا ہوں۔</p>
                 </div>
@@ -470,13 +449,13 @@
                     <h2 id="title5">Aap Ki Aankhein</h2>
                     <p>آپ کی آنکھیں—وہ گہرا سیاہ رنگ جو عام نہیں، ایک ایسے راز کی طرح ہے جو صرف خوبصورتی نہیں… گہرائی بھی رکھتا ہے۔ 
 
-<div class="quote" style="border-left: 5px solid var(--accent-2); color: var(--accent-2); font-style: normal;">"Aap ki aankhein woh gehra kaala rang jo na sirf khoobsurat hain balkay puri kainat in ma samai hoi ha."
+<div class="quote" style="border-left: 5px solid #800080; color: #800080; font-style: normal;">"Aap ki aankhein woh gehra kaala rang jo na sirf khoobsurat hain balkay puri kainat in ma samai hoi ha."
 "Aap ki aankhon me koi ajeeb si khamosh chamak hai jo dekhne wale ko rok leti hai."</div></p>
-                    <p style="text-align: center; font-style: italic; font-weight: 600; color: var(--accent-1);">نور ہی نور سے مکھڑے پہ وہ نوری آنکھیں
+                    <p style="text-align: center; font-style: italic; font-weight: 600; color: #ff69b4;">نور ہی نور سے مکھڑے پہ وہ نوری آنکھیں
     
 اس کے انجیل سے چہرے پہ زبوری آنکھیں</p>
                     <p>یہ نظم صرف آپ کے لیے لکھی گئی ہے، آپ کی خوبصورتی اس بات کا ثبوت ہے کہ اللہ نے بہت فرصت میں دنیا بنائی ہے۔ ہمیشہ اپنی اس منفرد پہچان کو برقرار رکھیے گا۔</p>
-            </div>
+                </div>
             </div>
             <div class="body"></div>
         </div>
@@ -496,12 +475,12 @@
                 <div class="card-content">
                     <h2 id="title6">Duaen & Motivation</h2>
                     <p>میں دعا کرتا ہوں کہ اللہ تعالیٰ آپ کی زندگی کو آسانیوں سے بھر دے۔</p>
-                    <div class="quote">"Main dua karta hoon ke Allah aap ke tamam goals aasaan kar de."
+                    <div class="quote">"Main dua karta hoon ke Allah aap ke तमाम goals aasaan kar de."
 "Aap jahan bhi jaayein, izzat, mohabbat aur achi niyat wale log milain.Aapka dil hamesha halka aur khush rahe.Laraib… aap intelligent aur sincere hain.
 “Jahan niyat saaf hoti hai, wahan raasta ban hi jaata hai.”
 “Aap kamzor nahi — bas nazuk dil ki hain. Aur nazuk dil wale hi asli strong hote hain.”"</div>
                     <p>آپ کی محنت اور سچائی کو کوئی نہیں روک سکتا۔ بس یقین رکھیں اور آگے بڑھیں۔</p>
-            </div>
+                </div>
             </div>
             <div class="body"></div>
         </div>
@@ -522,7 +501,7 @@
                     <h2 id="title7">End Note</h2>
                     <p> اللہ آپ کو خوشیوں، مسکراہٹوں، کامیابیوں اور محبتوں سے نوازے۔ 
 
-<div class="quote" style="border-left: 5px solid var(--accent-1);">Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se behtareen saal ho. Aap hamesha muskurayein, chamkain aur khush rahein.</div></p>
+<div class="quote" style="border-left: 5px solid #ff69b4; color: #ff69b4;">Happy Birthday once again, Laraib! Allah kare yeh saal aap ki zindagi ka sab se behtareen saal ho. Aap hamesha muskurayein, chamkain aur khush rahein.</div></p>
                 </div>
             </div>
             <div class="body"></div>
@@ -559,11 +538,11 @@
 
 <section id="sec9" class="section" aria-label="Section 9 - Cake Cutting">
     <div class="card-wrap" style="align-items:center; justify-content: center;">
-        <h2 style="color:var(--accent-2); margin-bottom:10px; font-size: 30px; text-shadow: 1px 1px 0 var(--gold);">Let's Cut the Cake!</h2>
+        <h2 style="color:#800080; margin-bottom:10px; font-size: 30px; text-shadow: 1px 1px 0 #FFD700;">Let's Cut the Cake!</h2>
 
         <div id="cake-container">
             <img id="cake" src="assets/cake.png" alt="Birthday cake" />
-            </div>
+        </div>
     
         <div style="margin-top:20px; padding-bottom: 20px;">
             <button id="cutBtn" class="btn" onclick="cutCake()">**Cut Cake 🎂**</button>
@@ -584,9 +563,8 @@
     const CELEBRATION_DURATION = 14000; 
 
     function showSection(i){
-        // Ensure all sections are checked, including the intro
         const allSections = document.querySelectorAll('.section');
-        allSections.forEach((el, index) => {
+        allSections.forEach((el) => {
             const sectionIndex = (el.id === 'intro') ? 1 : parseInt(el.id.replace('sec', ''));
             
             if (sectionIndex === i) {
@@ -610,24 +588,18 @@
         }
     }
 
-    // FIX: Open Door logic with the correct class name for the intro element
+    // Open Door logic
     function openDoor(){
         const introSection = document.getElementById('intro');
-        
-        // 1. Add the door-open class to the section itself for CSS
         introSection.classList.add('door-open');
         
-        // 2. Proceed to the first envelope (Section 2)
         setTimeout(() => {
             showSection(2); 
         }, 2200); 
     }
 
     function openEnvelope(idx){
-        // *** START MUSIC ON FIRST USER INTERACTION (SECTION 2) ***
-        if (idx === 2) {
-            tryStartBgMusic();
-        }
+        if (idx === 2) { tryStartBgMusic(); }
         
         const env = document.querySelector(`#sec${idx} .envelope`);
         if(!env) return;
@@ -643,10 +615,7 @@
     }
 
     function skipOpen(idx){
-        // *** START MUSIC ON FIRST USER INTERACTION (SECTION 2) ***
-        if (idx === 2) {
-            tryStartBgMusic();
-        }
+        if (idx === 2) { tryStartBgMusic(); }
 
         const env = document.querySelector(`#sec${idx} .envelope`);
         if(env) env.classList.add('opened');
@@ -674,7 +643,6 @@
         if(slice){ slice.currentTime = 0; slice.play().catch(()=>{}); }
         
         if(final){
-            // Stop the BG music and start the final song
             document.getElementById('bgMusic').pause();
             document.getElementById('bgMusic').currentTime = 0;
             
@@ -682,10 +650,8 @@
             final.play().catch(e => console.warn('finalMusic play failed', e));
         }
 
-        // Show the celebration text (now just a glowing effect)
         celebrationText.style.opacity = '1';
 
-        // Cake slice animation (no knife involved)
         setTimeout(()=>{
             cake.style.transform = 'scale(.96)';
             setTimeout(()=>{
@@ -695,12 +661,9 @@
         }, 600);
 
 
-        // Start continuous confetti loop
         startConfettiLoop();
 
-        // End celebration after CELEBRATION_DURATION
         setTimeout(()=>{
-            // Clear confetti loop
             clearInterval(confettiLoopTimer); 
 
             celebrationText.style.opacity = '0';
@@ -721,7 +684,8 @@
     }
 
     function launchConfetti(n){
-        const colors = ['#f94144','var(--accent-1)','var(--gold)','#90be6d','#577590','#b983ff','#ffb3c6', '#800080'];
+        /* Using hardcoded colors from the previous theme */
+        const colors = ['#f94144','#ff69b4','#FFD700','#90be6d','#577590','#b983ff','#ffb3c6', '#800080'];
         for(let i=0;i<n;i++){
             const el = document.createElement('div');
             el.className = 'confetti';
@@ -755,11 +719,11 @@
         overlay.style.background = 'rgba(0,0,0,0.85)';
         overlay.style.color = '#fff';
         overlay.style.zIndex = 99999;
-        overlay.style.fontSize = '28px'; /* Slightly larger */
+        overlay.style.fontSize = '28px';
         overlay.style.fontFamily = 'Segoe UI, Roboto, Arial, sans-serif';
         overlay.style.opacity = '0';
         overlay.style.transition = 'opacity .5s';
-        overlay.innerHTML = '<h1 style="color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);">🎉 Happy Birthday Laraib! 🎉</h1><p style="font-size: 18px; color: #fff;">Wish you all the best.</p>';
+        overlay.innerHTML = '<h1 style="color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);">🎉 Happy Birthday Laraib! 🎉</h1><p style="font-size: 18px; color: #fff;">Wish you all the best.</p>';
         overlay.style.flexDirection = 'column';
         overlay.style.textAlign = 'center';
         
@@ -774,7 +738,6 @@
 
     (function init(){
         showSection(1);
-        // Automatic door opening is still here
         setTimeout(openDoor, 50); 
     })();
 </script>
