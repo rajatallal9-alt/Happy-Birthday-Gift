@@ -5,27 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Happy Birthday Laraib — Card</title>
 <style>
-    /* UPDATED COLOR THEME (Brighter Pink/Gold for Birthday) */
-    :root{
-        --accent-1: #ff69b4; /* Brighter Pink (Hot Pink) */
-        --accent-2: #800080; /* Purple (for text) */
-        --card-bg: #fff7ff;
-        --gold: #FFD700; /* Rich Gold */
-        --envelope-bg-color: #f7eaf0; /* Pale background for the body */
-        --dark-purple: #4b2e83; /* Darker accent for text contrast */
-    }
-
+    /* SIMPLIFIED COLOR THEME (Hardcoded for maximum compatibility) */
+    
+    /* Original Colors */
+    --ACCENT-PINK: #ff69b4; 
+    --ACCENT-PURPLE: #800080;
+    --ACCENT-GOLD: #FFD700;
+    --DARK-TEXT: #4b2e83;
+    
     html,body{
         height:100%;
         margin:0;
         font-family: "Segoe UI", Roboto, Arial, sans-serif;
-        /* CHANGED: Richer, more complex background with a decorative element */
-        background: var(--envelope-bg-color);
+        background: #f7eaf0; /* Pale background for the body */
         background-image: radial-gradient(circle at top right, #fff0f5 10%, transparent 50%),
             linear-gradient(180deg, #ffd9eb 0%, #ffffff 80%);
         -webkit-font-smoothing:antialiased;
         -moz-osx-font-smoothing:grayscale;
-        color:var(--dark-purple);
+        color:var(--DARK-TEXT); /* Still using the dark text variable */
         overflow:hidden;
     }
     
@@ -37,7 +34,6 @@
         opacity: 0;
         pointer-events: none;
         z-index: 9999;
-        /* ADDED: Subtle 3D effect on confetti */
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
@@ -97,11 +93,9 @@
         top: 0;
         width: 50%;
         height: 100%;
-        /* CHANGED: Door color to a deeper purple gradient */
-        background: linear-gradient(180deg, #4b2e83, var(--accent-2)); /* Deep Purple Door */
+        background: linear-gradient(180deg, #4b2e83, #800080); /* Deep Purple Door */
         transform-origin: center center;
         transition: transform 1.5s cubic-bezier(0.86, 0, 0.07, 1);
-        /* ENHANCED: Stronger, more dramatic shadow */
         box-shadow: 0 15px 45px rgba(0,0,0,0.6);
         border-radius: 8px;
     }
@@ -126,11 +120,10 @@
 
     .greeting-text {
         position: absolute;
-        font-size: 2.8rem; /* Slightly larger */
+        font-size: 2.8rem; 
         font-weight: bold;
-        color: var(--accent-1);
-        /* ENHANCED: More pronounced text shadow/glow */
-        text-shadow: 0 0 10px rgba(255, 105, 180, 0.6), 0 0 20px #fff, 2px 2px 4px var(--accent-2);
+        color: #ff69b4; /* ACCENT-PINK */
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.6), 0 0 20px #fff, 2px 2px 4px #800080;
         opacity: 0;
         transition: opacity 0.8s ease 0.5s;
         text-align: center;
@@ -163,15 +156,14 @@
         height: 420px;
         position: relative;
         perspective: 1400px;
-        cursor: pointer; /* Added visual cue for clickability */
+        cursor: pointer;
     }
 
     .envelope .body {
         position:absolute;
         inset:0;
-        border-radius:16px; /* Slightly larger border radius */
-        background: var(--envelope-bg-color); /* Pale Pink Body */
-        /* ENHANCED: Softer shadow */
+        border-radius:16px; 
+        background: #f7eaf0; /* Pale Pink Body */
         box-shadow: 0 12px 40px rgba(20,10,60,0.1);
         overflow:visible;
         display:flex;
@@ -181,7 +173,7 @@
         box-sizing:border-box;
     }
 
-    /* NEW FLAP STYLE (Solid Pink, covers entire body, rotates fully) */
+    /* NEW FLAP STYLE */
     .envelope .flap {
         position:absolute;
         top:0;
@@ -189,11 +181,9 @@
         width:100%;
         height:100%;
         transform-origin: top center;
-        /* CHANGED: Flap to a gradient with a bold gold border */
-        background: linear-gradient(135deg, var(--accent-1), #ff4d94);
+        background: linear-gradient(135deg, #ff69b4, #ff4d94); /* Pink to Lighter Pink */
         border-radius:16px;
-        border-top: 5px solid var(--gold);
-        /* ENHANCED: Stronger box shadow for depth */
+        border-top: 5px solid #FFD700; /* Gold border */
         box-shadow: 0 15px 45px rgba(255, 105, 180, 0.6);
         transform-style: preserve-3d;
         transition: transform .8s cubic-bezier(.2,.9,.3,1);
@@ -204,17 +194,17 @@
         justify-content:center;
     }
     
-    /* ENHANCED: Flap content with gold color and a touch of glamour */
+    /* ENHANCED: Flap content */
     .envelope .flap::after{
         content: "✨ Tap to Open Card ✨";
         display:block;
         font-size: 26px;
         font-weight: 900;
-        color: var(--gold); /* Gold color for text */
+        color: #FFD700; /* Gold color for text */
         text-shadow: 0 0 10px rgba(255,215,0,0.5), 0 2px 4px rgba(0,0,0,0.5);
     }
     
-    /* LETTER STYLE (Sits inside the envelope body) */
+    /* LETTER STYLE */
     .envelope .letter {
         position:absolute;
         left:6%;
@@ -223,13 +213,12 @@
         top:10%;
         background: #ffffff;
         border-radius:10px;
-        /* ENHANCED: Paper-like shadow with a slight texture */
         box-shadow: 0 10px 40px rgba(30,10,60,0.1), inset 0 0 10px rgba(0,0,0,0.05);
         transform-origin: bottom center;
         transform: translateY(28px) scale(.98);
         opacity:0;
         transition: transform .8s cubic-bezier(.2,.9,.3,1), opacity .6s;
-        padding:28px; /* Slightly more padding */
+        padding:28px; 
         box-sizing:border-box;
         z-index:6;
         display:flex;
@@ -251,18 +240,17 @@
     
     .card-content{
         width:100%;
-        color:var(--dark-purple); /* Changed from accent-2 */
+        color:#4b2e83; 
         text-align:left;
     }
     .card-content h1,
     .card-content h2 {
         margin:0 0 10px 0;
         font-size:24px;
-        color:var(--accent-2);
+        color:#800080; /* ACCENT-PURPLE */
         text-align:center;
         width:100%;
-        /* ENHANCED: Gold highlight for headings */
-        text-shadow: 1px 1px 0 var(--gold), 0 0 2px rgba(128,0,128,0.2);
+        text-shadow: 1px 1px 0 #FFD700, 0 0 2px rgba(128,0,128,0.2);
         line-height: 1.2;
     }
     .card-content h1 {
@@ -273,25 +261,25 @@
     .card-content p{
         margin:0 0 14px 0;
         font-size:18px;
-        line-height:1.6; /* Increased line height for readability */
-        color:var(--dark-purple); /* Darker text for contrast */
+        line-height:1.6;
+        color:#4b2e83; 
         white-space: pre-wrap;
     }
     .quote{
         margin-top:10px;
         font-style:italic;
-        color:var(--accent-1); /* Pinker for quotes */
-        text-align:center; /* Centered quote */
-        background: #fff0f5; /* Light background for quote block */
+        color:#ff69b4; /* ACCENT-PINK */
+        text-align:center;
+        background: #fff0f5;
         padding: 10px 15px;
         border-radius: 8px;
-        border-left: 5px solid var(--accent-1);
+        border-left: 5px solid #ff69b4; /* ACCENT-PINK */
         margin-bottom: 15px;
     }
     
     .controls{
         display:flex;
-        gap:15px; /* Slightly more gap */
+        gap:15px;
         margin-top:12px;
         z-index: 10;
     }
@@ -300,13 +288,11 @@
         border:0;
         padding:12px 24px; 
         border-radius:12px; 
-        /* ENHANCED: Bold gradient for primary button */
-        background:linear-gradient(45deg, var(--accent-1), #9933cc); /* Pink to Royal Purple */
+        background:linear-gradient(45deg, #ff69b4, #9933cc); /* Pink to Royal Purple */
         color:#fff;
         cursor:pointer;
         font-size:18px; 
         font-weight: bold;
-        /* ENHANCED: Deeper shadow for "lift" effect */
         box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4), 0 2px 4px rgba(0,0,0,0.1);
         transition: all 0.2s ease;
     }
@@ -316,10 +302,9 @@
     }
     .btn.secondary{
         background:transparent;
-        color:var(--dark-purple);
+        color:#4b2e83;
         box-shadow:none;
-        /* CHANGED: Clearer border and gold-tinted hover */
-        border:2px solid var(--accent-2);
+        border:2px solid #800080;
     }
     .btn.secondary:hover:not(:disabled) {
         background: #fffde7;
@@ -349,14 +334,13 @@
         transition: transform .2s ease; 
         border-radius:14px; 
         z-index: 2;
-        /* ADDED: Slight lift and shadow for the cake image */
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
     
     /* Celebration Text (ONLY GLOW EFFECT - Removed opaque background) */
     @keyframes pulseGlow {
-        from { text-shadow: 0 0 10px var(--accent-1), 0 0 30px var(--gold), 0 0 50px var(--accent-1); }
-        to { text-shadow: 0 0 20px var(--accent-1), 0 0 40px var(--gold), 0 0 60px #fff; }
+        from { text-shadow: 0 0 10px #ff69b4, 0 0 30px #FFD700, 0 0 50px #ff69b4; }
+        to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #FFD700, 0 0 60px #fff; }
     }
     #celebrationText {
         position: absolute;
@@ -365,9 +349,9 @@
         transform: translate(-50%, -50%); 
         width: 100%;
         text-align: center;
-        font-size: 4rem; /* Larger font size for impact */
-        font-weight: 900; /* Bolder font weight */
-        color: var(--gold); /* Gold text */
+        font-size: 4rem; 
+        font-weight: 900; 
+        color: #FFD700; /* Gold text */
         text-shadow: 0px 0px 30px rgba(255, 215, 0, 0.9), 0px 4px 12px rgba(139,46,255,0.3);
         opacity: 0;
         z-index: 10;
